@@ -1,0 +1,32 @@
+{
+  "name": "systemthinkinglab",
+  "owner": {
+    "name": "Kay Ashaolu"
+  },
+  "description": "Systems Thinking Lab tools for Claude Code.",
+  "plugins": [
+    {
+      "name": "design-with-blocks",
+      "source": "./design-with-blocks",
+      "description": "Design an application using the 7 Universal Building Blocks framework: decompose features into blocks, get per-block technology recommendations, and output a buildable design doc.",
+      "author": {
+        "name": "Kay Ashaolu"
+      },
+      "homepage": "https://systemthinkinglab.ai",
+      "license": "Apache-2.0"
+    },
+    {
+      "name": "scaffold",
+      "source": {
+        "source": "github",
+        "repo": "kayashaolu/scaffold",
+        "ref": "main"
+      },
+      "description": "An AI mentor for junior engineers: plan-first coaching, a compounding codebase wiki, and an honest ledger of what you've actually demonstrated you know.",
+      "author": {
+        "name": "Kay Ashaolu"
+      },
+      "homepage": "https://systemthinkinglab.ai"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "name": "design-with-blocks",
+  "description": "Design an application using the 7 Universal Building Blocks framework: decompose features into blocks, get per-block technology recommendations, and output a buildable design doc.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Kay Ashaolu",
+    "url": "https://systemthinkinglab.ai"
+  }
+}
