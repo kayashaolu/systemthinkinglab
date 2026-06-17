@@ -27,16 +27,13 @@
     },
     {
       "name": "scaffold",
-      "source": {
-        "source": "github",
-        "repo": "kayashaolu/scaffold",
-        "ref": "main"
-      },
+      "source": "./scaffold",
       "description": "An AI mentor for junior engineers: plan-first coaching, a compounding codebase wiki, and an honest ledger of what you've actually demonstrated you know.",
       "author": {
         "name": "Kay Ashaolu"
       },
-      "homepage": "https://systemthinkinglab.ai"
+      "homepage": "https://systemthinkinglab.ai",
+      "license": "Apache-2.0"
     }
   ]
 }
