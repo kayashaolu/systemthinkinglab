@@ -1,0 +1,9 @@
+{
+  "name": "review-with-blocks",
+  "description": "Review a finished system design against the 7 Universal Building Blocks and the non-functional '-ilities': decompose it, flag wrong/missing blocks, rate each load-bearing -ility, and surface the questions a senior would ask. The design-review end of design → build → review.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Kay Ashaolu",
+    "url": "https://systemthinkinglab.ai"
+  }
+}

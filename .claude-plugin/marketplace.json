@@ -16,6 +16,16 @@
       "license": "Apache-2.0"
     },
     {
+      "name": "review-with-blocks",
+      "source": "./review-with-blocks",
+      "description": "Review a finished system design against the 7 Universal Building Blocks and the non-functional '-ilities': decompose it, flag wrong/missing blocks, rate each load-bearing -ility, and surface the questions a senior would ask. The design-review end of design → build → review.",
+      "author": {
+        "name": "Kay Ashaolu"
+      },
+      "homepage": "https://systemthinkinglab.ai",
+      "license": "Apache-2.0"
+    },
+    {
       "name": "scaffold",
       "source": {
         "source": "github",
