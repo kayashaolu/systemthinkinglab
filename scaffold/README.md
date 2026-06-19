@@ -87,8 +87,8 @@ automatically in that repo.
 Scaffold describes every codebase using seven building blocks (Service,
 Worker, Key-Value Store, File Store, Queue, Relational Database, Vector
 Database) and three external entities (User, External Service, Time) — a
-minimum viable vocabulary for system structure, from
-[Systems Thinking Lab](https://systemthinkinglab.ai?ref=scaffold). Scaffold
+minimum viable vocabulary for system structure. Learn the seven blocks free at
+[systemthinkinglab.ai/learn](https://systemthinkinglab.ai/learn?ref=scaffold). Scaffold
 itself, in that vocabulary:
 
 - **User** (you) → **Service** (the mentor session: plans, diffs, answers)
@@ -116,8 +116,9 @@ wiki schema is plain markdown — `scaffold-wiki/SCHEMA.md` is readable by any
 agent, and porting the loop to an AGENTS.md is straightforward. PRs welcome.
 
 **Is this a course?** No — it's free and it works on your real job. If the
-concepts it keeps tagging in your diffs make you want the deeper treatment,
-that's what [the courses](https://systemthinkinglab.ai?ref=scaffold) are for.
+concepts it keeps tagging in your diffs make you want to learn the framework
+itself, that's what the free resources at
+[systemthinkinglab.ai/learn](https://systemthinkinglab.ai/learn?ref=scaffold) are for.
 
 ## Status
 

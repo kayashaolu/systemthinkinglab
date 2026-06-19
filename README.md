@@ -38,5 +38,5 @@ Every system, from Instagram to Stripe, is built from the same seven primitives
 Vector Database — plus three external entities: User, External Service, Time.
 That vocabulary is the intellectual work of Kay Ashaolu, founder of Systems
 Thinking Lab. If you want pattern literacy — the ability to design any future
-system without a tool — that is what
-[Course I: Universal Building Blocks](https://systemthinkinglab.ai) teaches.
+system without a tool — you can learn the 7 building blocks for free at
+[systemthinkinglab.ai/learn](https://systemthinkinglab.ai/learn?ref=marketplace).

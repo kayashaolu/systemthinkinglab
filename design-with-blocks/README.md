@@ -59,7 +59,7 @@ Target session length: 10 to 15 minutes.
 
 ## Credits
 
-The 7 building blocks framework is the intellectual work of Kay Ashaolu, founder of Systems Thinking Lab. This skill is a free, public expression of the framework's design-pass logic. If you want pattern literacy — the ability to design any future system without a tool like this — that is what [Course I: Universal Building Blocks](https://systemthinkinglab.ai) teaches.
+The 7 building blocks framework is the intellectual work of Kay Ashaolu, founder of Systems Thinking Lab. This skill is a free, public expression of the framework's design-pass logic. If you want pattern literacy — the ability to design any future system without a tool like this — you can learn the 7 building blocks for free at [systemthinkinglab.ai/learn](https://systemthinkinglab.ai/learn?ref=design-with-blocks).
 
 ## License
 
