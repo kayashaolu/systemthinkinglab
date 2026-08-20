@@ -50,6 +50,18 @@ commit taught about the codebase, what changed, what the wiki learned, and
 what *you* learned. Threads that recur across commits get named. Nothing
 disappears into chat history.
 
+**Two modes: craft and direction.** By default you're in **craft mode** —
+you and your junior engineer (the agent) predicting and diffing together on
+every task, exactly as above. **Direction mode** is a different rep: you
+write a brief (goal, falsifiable done-criteria, your own bounds on rounds
+and time), and a builder-and-breaker pair iterates inside those bounds on
+its own, stopping on one of five enumerated conditions. What comes back is a
+diff plus findings attached to it — never a verdict — and the go/no-go call
+is yours, every time. The brief is the prediction; the go/no-go is what gets
+scored. Every direction-mode run also writes one entry to a third artifact,
+the **judgment log** — a narrative record of what got pushed back on and
+why, separate from the mastery ledger and taking no signed marks of its own.
+
 ## Install
 
 Scaffold is a [Claude Code](https://claude.com/claude-code) plugin, distributed
@@ -109,7 +121,9 @@ once — then does it. It never holds work hostage.
 
 **Who can see my ledger?** Nobody. The wiki is plain markdown on your machine,
 gitignored by default, sent nowhere. Sharing it with a mentor is your call,
-never a default.
+never a default — and when you do want to share something specific, `/scaffold
+export` renders exactly the entries you name, verbatim, into one dated file,
+instead of handing over the whole wiki.
 
 **Does it work with other agents?** The skill format is Claude Code's, but the
 wiki schema is plain markdown — `scaffold-wiki/SCHEMA.md` is readable by any
@@ -122,6 +136,7 @@ itself, that's what the free resources at
 
 ## Status
 
-v0.1 — an experiment in public. The loop, the mastery rules, and the coaching
+v0.2 — an experiment in public. The loop, the mastery rules, and the coaching
 voice were calibrated through persona trials and real-junior dogfooding;
-expect rough edges anyway. Issues and field reports very welcome.
+direction mode is newer and less battle-tested than craft mode. Expect rough
+edges anyway. Issues and field reports very welcome.

@@ -14,3 +14,9 @@ first when looking for anything.*
 ## Learner
 
 - [profile](learner/profile.md) — mastery summary: strengths, gaps, trajectory
+
+## Judgment trail (direction mode)
+
+*(empty until direction mode or `/scaffold export` is used for the first
+time — `judgment-log.md`, `briefs/`, and `artifacts/` are created lazily;
+see SCHEMA.md)*

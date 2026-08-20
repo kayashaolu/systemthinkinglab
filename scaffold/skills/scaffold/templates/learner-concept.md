@@ -8,7 +8,11 @@ linked: "[[concepts/CONCEPT_NAME]]"
 
 ## Evidence
 
-- YYYY-MM-DD plan: FIRST_EVIDENCE_LINE (+|−|±)
+<!-- mode: craft|direction|unspecified — required-on-write, optional-on-read.
+     A line written before this convention existed carries no mode: tag; it
+     reads as unspecified and is never edited to add one after the fact. -->
+
+- YYYY-MM-DD plan: FIRST_EVIDENCE_LINE (+|−|±) [mode: craft|direction]
 
 ## Status
 

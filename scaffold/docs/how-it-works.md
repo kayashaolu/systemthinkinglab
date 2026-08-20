@@ -54,6 +54,31 @@ and a task that re-proves it. You never watch a rating drop; you watch a
 review queue that tells the truth. An AI that only agrees teaches nothing —
 and one that punishes rust teaches you to hide it.
 
+## Two modes: craft and direction
+
+Everything above describes **craft mode** — you and your junior engineer (the
+agent) in the loop together, predicting and diffing on every task. It's the
+default, and for most work it's the right one.
+
+**Direction mode** is a different kind of rep. You write a brief — a goal,
+falsifiable done-criteria, and your own bounds on how long the run gets to
+take. A builder-and-breaker pair (the breaker's job is only to find what
+the builder missed — Scaffold calls it "the breaker" by default, and you can
+rename it in your own wiki) then iterates inside those bounds, on their own,
+and stops on one of five enumerated conditions: the criteria were met, the
+round cap or time box was hit, it got stuck, or you interrupted it. What
+comes back is a diff plus findings attached to it — never a verdict, never a
+recommendation to ship. You make the go/no-go call yourself, every time.
+
+The brief is the prediction; the go/no-go is the judgment call being scored.
+It's the same mechanism as craft mode's predict-then-diff, aimed at a
+different skill: not "did I get the code right," but "did I direct this
+right, and did I know when to trust what came back." Every direction-mode run
+writes one entry to a third, narrative artifact — the **judgment log** — that
+takes no signed marks, because a narrative isn't a falsifiable claim the way
+a prediction is. It's the record of what you pushed back on and why, in your
+own words, that the mastery ledger can't hold.
+
 ## Why every commit reports
 
 The commit is the heartbeat. Each one integrates what happened into the wiki
