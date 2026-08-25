@@ -543,7 +543,8 @@ carve-out is the trivial Skip size gate**, where no plan is ever formed at all â
 do the work" already says so, and asking for approval of a plan that was never revealed would be
 theater, not consent.
 
-**The plan-check question**, "pick the plan item that changes the code the most and tell me why,"
+**The plan-check question**, "pick the plan item that changes the code the most and tell me in one
+sentence why it's the right call, or push back if you don't buy it,"
 rides this checkpoint, but only when the one-per-task toll has not already been spent this task.
 The toll is spent by the learner's step-2 answer, not by the challenge gate firing â€” whether or
 not the gate ever asked its question. Step 4's test reads "any genuine commitment, however thin,
