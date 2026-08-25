@@ -13,9 +13,11 @@ ratings change and when progress questions are answered.*
 written at flag time, count updated as clearing reps land and written back
 to `(0/2)` when a fresh (−) resets it, replaced with the cleared date when
 it clears. Trend cell: set `↘` when a fresh (−) lands, `↗` as reps accumulate; a
-declined rep sets `steer owed` — never `↘`: declining costs nothing, and the
+declined rep sets the wiki's configured steer-owed marker (`steer owed` is
+the default; `SCHEMA.md`'s `steer_owed_label:` field can change the word,
+never the mechanics). It never sets `↘`: declining costs nothing, and the
 cell exists so the re-spend survives the session boundary, not to price the
-decline. `steer owed` joins a standing `↘`, never replaces it; `steer owed`
+decline. The marker joins a standing `↘`, never replaces it; it
 clears when the steer re-spends; `↘` relaxes when the mark ages out of the
 six-week window or a (+) lands. This table is what session start reads; a fresh (−) or
 a flag recorded only in `log.md` scrolls out of view.*

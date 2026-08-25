@@ -71,11 +71,36 @@ know?" always gets an honest answer.
 
 ## Local configuration
 
+**The display/storage split (read this before adding or changing any key below):** a config key
+in this section controls *wording spoken or written in prose* — never a stored file format. The
+file formats these keys describe (frontmatter fields, the profile's `flagged YYYY-MM-DD (n/2)`
+counter, `log.md`'s entry-type header, the signed marks) are never rename targets, on any key,
+ever — changing one of these keys means editing how the mentor *talks about* the thing, not how
+the wiki *stores* it. This is the `catcher_name:` pattern below, generalized: "a rename should
+mean editing one field in one file, not hunting down every place the old word got typed." Add a
+key here yourself, any time you and the mentor settle on a friendlier word for something — this
+section is meant to grow with local convention, the same as "Local amendments" below.
+
 - `catcher_name:` *(unset)* — the display name for the adversarial reviewer
   role, in both craft-mode diffs and direction-mode findings. Default when
   unset: **"the breaker"** (a second junior engineer whose only job is to
   break the first one's work). Set a value here to change it everywhere at
   once, instead of it drifting across sessions.
+- `size_gate_trivial_label:` *(unset)*: the phrase said aloud when the size
+  gate lands on Skip. Default when unset: **"Size gate: trivial, no
+  ritual."**
+- `steer_owed_label:` *(unset)*: the word for a declined predict rep's
+  banked, re-offered guidance, in both the mentor's own talk and the
+  `learner/profile.md` Trend cell. Default when unset: **"steer owed."** The
+  stored cell format (which column, when it's set and cleared) is
+  unaffected by this key; only the word written into it changes.
+- `stop_reason_labels:` *(unset)*: friendlier wording for the five
+  direction-mode stop reasons, keyed by the raw token: `done-criteria-met`,
+  `max-rounds`, `time-box-exceeded`, `stuck-detector`, `student-interrupt`.
+  Unset (the default) reaches the learner as the raw token spelling above,
+  still stated verbatim and in full, never summarized. Set some or all of
+  the five to change what gets said for that stop reason; the token logged
+  on the ledger entry never changes.
 - `direction_mode_ceiling:` *(unset — PROVISIONAL default: 10 rounds / 60
   minutes)* — a hard backstop on any direction-mode brief's own bounds,
   regardless of what the brief requests. This default is an arbitrary

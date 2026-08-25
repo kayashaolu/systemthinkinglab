@@ -6,7 +6,7 @@ turns every commit into a report on both your codebase and your growth.
 
 Most AI coding tools optimize one thing: the code. Scaffold optimizes two,
 with equal weight: the code, and *you*. Because a junior engineer is doing two
-jobs at once — shipping and learning — and a tool that does the first while
+jobs at once, shipping and learning, and a tool that does the first while
 silently skipping you past the second is how skills rot.
 
 > *"What learning protects is your ability to build a mental model of why the
@@ -14,8 +14,8 @@ silently skipping you past the second is how skills rot.
 > model-building."*
 
 Scaffold is the runnable version of that idea. It is derived from
-[Karpathy's LLM Wiki pattern](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)
-— a persistent, compounding wiki the AI maintains — pointed at a new target:
+[Karpathy's LLM Wiki pattern](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f),
+a persistent, compounding wiki the AI maintains, pointed at a new target:
 **the wiki becomes an external representation of your understanding.**
 
 ## What it does
@@ -24,7 +24,7 @@ Scaffold is the runnable version of that idea. It is derived from
 is what *you* think should change, and why. Then it shows its own plan as a
 diff against yours: what you got right (banked as evidence), what it would
 change (max five items, ordered by stakes, each tagged with the concept behind
-it). When you genuinely disagree, it won't proceed until you've argued it out —
+it). When you genuinely disagree, it won't proceed until you've argued it out:
 *"if we shipped your plan as-is, which of my items would bite first?"* The
 back-and-forth is where judgement forms. An AI that only agrees teaches
 nothing.
@@ -32,14 +32,14 @@ nothing.
 **Two ledgers, never merged.** The wiki keeps what the *AI* knows about your
 codebase (`codebase/`, `concepts/`) strictly separate from what *you've
 demonstrated* (`learner/`). Ask "what do I know?" and you get an honest answer
-with receipts — dated evidence from real predictions and real commits, not
+with receipts: dated evidence from real predictions and real commits, not
 vibes. Ask "what are my gaps?" and every gap comes with the page to read and a
 task that would close it.
 
-**Three mastery levels, mechanically earned — and they never go down.**
+**Three mastery levels, mechanically earned, and they never go down.**
 *Learning* → *understanding* (2 unaided correct predictions) →
 *internalizing* (you applied it somewhere new, or you caught Scaffold's own
-miss). A level records the best you've demonstrated, like a belt — knowledge
+miss). A level records the best you've demonstrated, like a belt: knowledge
 gets rusty, it doesn't get revoked. Two misses in six weeks flags the concept
 for review instead: Scaffold steers tasks at it until two clean reps clear
 the flag, always with the exact page to re-read and a task that re-proves it.
@@ -50,16 +50,16 @@ commit taught about the codebase, what changed, what the wiki learned, and
 what *you* learned. Threads that recur across commits get named. Nothing
 disappears into chat history.
 
-**Two modes: craft and direction.** By default you're in **craft mode** —
+**Two modes: craft and direction.** By default you're in **craft mode**:
 you and your junior engineer (the agent) predicting and diffing together on
 every task, exactly as above. **Direction mode** is a different rep: you
 write a brief (goal, falsifiable done-criteria, your own bounds on rounds
 and time), and a builder-and-breaker pair iterates inside those bounds on
 its own, stopping on one of five enumerated conditions. What comes back is a
-diff plus findings attached to it — never a verdict — and the go/no-go call
+diff plus findings attached to it, never a verdict, and the go/no-go call
 is yours, every time. The brief is the prediction; the go/no-go is what gets
 scored. Every direction-mode run also writes one entry to a third artifact,
-the **judgment log** — a narrative record of what got pushed back on and
+the **judgment log**: a narrative record of what got pushed back on and
 why, separate from the mastery ledger and taking no signed marks of its own.
 
 ## Install
@@ -72,7 +72,7 @@ through the Systems Thinking Lab marketplace. Install it from inside Claude Code
 /plugin install scaffold@systemthinkinglab
 ```
 
-That's it — updates later are just `/plugin marketplace update systemthinkinglab`.
+That's it. Updates later are just `/plugin marketplace update systemthinkinglab`.
 
 <details>
 <summary>Or install manually as a personal skill</summary>
@@ -90,7 +90,7 @@ Then in any repo:
 /scaffold
 ```
 
-First run creates `scaffold-wiki/` (gitignored — your ledger is yours), does a
+First run creates `scaffold-wiki/` (gitignored; your ledger is yours), does a
 light pass over the codebase, and you're working. From then on it engages
 automatically in that repo.
 
@@ -98,7 +98,7 @@ automatically in that repo.
 
 Scaffold describes every codebase using seven building blocks (Service,
 Worker, Key-Value Store, File Store, Queue, Relational Database, Vector
-Database) and three external entities (User, External Service, Time) — a
+Database) and three external entities (User, External Service, Time): a
 minimum viable vocabulary for system structure. Learn the seven blocks free at
 [systemthinkinglab.ai/learn](https://systemthinkinglab.ai/learn?ref=scaffold). Scaffold
 itself, in that vocabulary:
@@ -106,37 +106,42 @@ itself, in that vocabulary:
 - **User** (you) → **Service** (the mentor session: plans, diffs, answers)
 - **Time** (every git commit) → **Worker** (the commit report: integrates what
   happened into the wiki)
-- **File Store** (the wiki — plain markdown, the durable compounding artifact)
-- **External Service** (git — the record of what actually happened)
+- **File Store** (the wiki: plain markdown, the durable compounding artifact)
+- **External Service** (git: the record of what actually happened)
 
 No server, no database, no telemetry. The whole product is markdown, prompts,
-and conventions — the leverage is in the scaffolding, not the machinery.
+and conventions: the leverage is in the scaffolding, not the machinery.
 
 ## FAQ
 
 **Will it slow me down?** A size gate keeps the ritual proportional: typo-level
 changes skip it entirely, and the full loop charges one "struggle toll" per
 task, capped at minutes. If you tell it to just fix something, it pushes back
-once — then does it. It never holds work hostage.
+once, then does it. It never holds work hostage.
 
 **Who can see my ledger?** Nobody. The wiki is plain markdown on your machine,
 gitignored by default, sent nowhere. Sharing it with a mentor is your call,
-never a default — and when you do want to share something specific, `/scaffold
+never a default. When you do want to share something specific, `/scaffold
 export` renders exactly the entries you name, verbatim, into one dated file,
 instead of handing over the whole wiki.
 
 **Does it work with other agents?** The skill format is Claude Code's, but the
-wiki schema is plain markdown — `scaffold-wiki/SCHEMA.md` is readable by any
+wiki schema is plain markdown: `scaffold-wiki/SCHEMA.md` is readable by any
 agent, and porting the loop to an AGENTS.md is straightforward. PRs welcome.
 
-**Is this a course?** No — it's free and it works on your real job. If the
+**Is this a course?** No. It's free and it works on your real job. If the
 concepts it keeps tagging in your diffs make you want to learn the framework
 itself, that's what the free resources at
 [systemthinkinglab.ai/learn](https://systemthinkinglab.ai/learn?ref=scaffold) are for.
 
 ## Status
 
-v0.2 — an experiment in public. The loop, the mastery rules, and the coaching
+v0.3: an experiment in public. The loop, the mastery rules, and the coaching
 voice were calibrated through persona trials and real-junior dogfooding;
 direction mode is newer and less battle-tested than craft mode. Expect rough
 edges anyway. Issues and field reports very welcome.
+
+Plan approval is now a checkpoint, not an assumption. Once the full loop kicks
+in, the mentor will not build until you explicitly approve the plan: a plain
+yes works. The change closes a defect where a vague "sounds good" could count
+as approval.

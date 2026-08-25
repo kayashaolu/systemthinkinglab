@@ -38,7 +38,11 @@ mode: direction
 
 ## What I expect to be hard
 
-<!-- Your prediction of where this run will struggle, or where the breaker
-     will find something. Part of the scoreable claim — not a formality. -->
+<!-- Your prediction of where this run will struggle, or where the adversarial-review
+     role will find something (the display name for that role is whatever
+     scaffold-wiki/SCHEMA.md's `catcher_name:` field currently says — see SKILL.md
+     for the default. Never hardcode a specific literal here: a rename should mean
+     editing one field in one file, not this comment too). Part of the scoreable
+     claim — not a formality. -->
 
 -
