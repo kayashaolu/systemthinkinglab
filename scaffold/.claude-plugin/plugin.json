@@ -1,7 +1,7 @@
 {
   "name": "scaffold",
   "description": "An AI mentor for junior engineers: plan-first coaching on every task in craft or direction mode, a compounding wiki of codebase knowledge, and an honest ledger of what you've actually demonstrated you know.",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "author": {
     "name": "Kay Ashaolu",
     "url": "https://systemthinkinglab.ai"
