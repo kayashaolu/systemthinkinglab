@@ -230,7 +230,39 @@ If the user invokes scaffold and `scaffold-wiki/` does not exist:
 
 1. Briefly explain what you're about to create (two ledgers, plan-first loop,
    commit reports) — three sentences, then act.
-2. Create the wiki from the `templates/` directory next to this SKILL.md:
+2. **Invite exploration.** One question, one keystroke to decline, no cost either
+   way: *"Want a few minutes to explore this codebase yourself first, read-only,
+   before we start? No wrong answer."*
+
+   **A yes runs the exploration now, before the wiki exists** — it doesn't need the
+   wiki, because this is the student's own read, not the mentor's, and it writes
+   nothing down. Offer three generic question shapes and let the student pick one
+   and point it at whatever code they choose:
+
+   - trace a lifecycle
+   - name an assumption and where it's enforced
+   - what breaks if this is removed
+
+   The student instantiates the shape against their own code. The mentor does not
+   choose the target, does not read the files first, and does not narrate a
+   walkthrough of its own — this is the student's look, not a guided one. Bounds:
+   read-only, no edits, no network. Stop immediately on "stop"/"that's enough".
+   Say in one line that this is exploration, not a task, so predict, the challenge
+   gate, and Approve do **not** fire for it and no toll is spent. This is a
+   **separate read from the mentor's own light ingest in step 5 below — two reads,
+   two purposes:** the student's read explores and writes nothing to the wiki; the
+   mentor's read in step 5 ingests and is what writes `codebase/architecture.md`.
+   **`learner/` is untouched by this exploration:** no learner page is created, no
+   mastery level moves, no evidence line is written, and `learner/profile.md`
+   stays as templated — exploration is not a demonstration, and this is the
+   invariant stated near the top of this document ("You never credit the learner
+   with knowledge they haven't demonstrated") that the most natural improvisation
+   here would break. A **no**, silence, or a change of subject is a decline:
+   acknowledge it in one line, do not re-ask, and continue straight to step 3
+   (wiki creation). This is the deliberate divergence from Approve's silence rule
+   below — an invitation that blocks init on silence is not "one keystroke and
+   completely respected."
+3. Create the wiki from the `templates/` directory next to this SKILL.md:
    `SCHEMA.md`, `index.md`, `log.md`, and the empty directories `codebase/`,
    `concepts/`, `learner/`. Create `learner/profile.md` from
    `templates/learner-profile.md`. (Later learner pages start from
@@ -240,15 +272,15 @@ If the user invokes scaffold and `scaffold-wiki/` does not exist:
    at init; they come into existence the first time the learner actually
    uses direction mode or runs `/scaffold export`, same lazy-creation
    pattern as a learner page.
-3. Add `scaffold-wiki/` to `.gitignore` (or to the local exclude file —
+4. Add `scaffold-wiki/` to `.gitignore` (or to the local exclude file —
    `git rev-parse --git-path info/exclude`, since `.git` is a file in linked
    worktrees — if the learner prefers the wiki's existence to stay out of
    repo history; in multi-worktree repos, note that each worktree gets its
    own wiki but the exclude file is shared, so one line covers them all) and
    say why: *"Your learner ledger is
-   yours. It stays local and out of the repo unless you choose otherwise — if
+   yours. It stays local and out of the repo unless you choose otherwise. If
    you want a mentor to be able to read it, remove the ignore line."*
-4. Do a **light ingest** so the wiki is not empty on day one: read the README
+5. Do a **light ingest** so the wiki is not empty on day one: read the README
    and the architecture-relevant parts of any agent-instruction files at the
    root (CLAUDE.md, AGENTS.md — often
    the truest architecture doc), every dependency manifest within two
@@ -259,7 +291,8 @@ If the user invokes scaffold and `scaffold-wiki/` does not exist:
    building blocks vocabulary (see below), honestly marked as a skim. Stamp it
    `knowledge: ai-ingested`. Tell the user what you wrote and that a deeper
    ingest improves it any time they ask.
-5. Append an `init` entry to `log.md`.
+6. Append an `init` entry to `log.md`, recording the invitation's outcome — offered
+   and accepted, or offered and declined.
 
 ## Session start (every session)
 
@@ -280,6 +313,12 @@ or `commit` entry yet*. This is a different predicate from *init* (the wiki dire
 yet) — a learner can init and run a task in the same session, or return on day two to an
 already-initialized wiki that has never actually run a task. Check the log, not how long the wiki
 has existed.
+
+**If init's exploration invitation ran this same session, name the difference out loud** when you
+get here: that was an offer with no right answer and no cost either way; this predict question is
+the first rep, and it is the toll — the two predict-shaped asks genuinely co-occur on a fresh
+session 1, and a learner who just heard "no wrong answer" needs the switch flagged, not left to
+infer it.
 
 **On session 1 only, invert the usual predict-step order:** state mode + size gate in one line,
 carrying the craft-mode contract statement from "Craft mode" above in the same breath, say in one

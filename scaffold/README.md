@@ -90,9 +90,10 @@ Then in any repo:
 /scaffold
 ```
 
-First run creates `scaffold-wiki/` (gitignored; your ledger is yours), does a
-light pass over the codebase, and you're working. From then on it engages
-automatically in that repo.
+First run offers an optional, read-only exploration of the codebase, yours,
+not a guided one (one keystroke to skip), then creates `scaffold-wiki/`
+(gitignored; your ledger is yours) and does a light pass over the codebase.
+From then on it engages automatically in that repo.
 
 ## The architecture, in its own vocabulary
 
@@ -136,12 +137,22 @@ itself, that's what the free resources at
 
 ## Status
 
-v0.3: an experiment in public. The loop, the mastery rules, and the coaching
+v0.4: an experiment in public. The loop, the mastery rules, and the coaching
 voice were calibrated through persona trials and real-junior dogfooding;
 direction mode is newer and less battle-tested than craft mode. Expect rough
 edges anyway. Issues and field reports very welcome.
 
-Plan approval is now a checkpoint, not an assumption. Once the full loop kicks
-in, the mentor will not build until you explicitly approve the plan: a plain
-yes works. The change closes a defect where a vague "sounds good" could count
-as approval.
+Plan approval is a checkpoint, not an assumption (0.3.2). Once the full loop
+kicks in, the mentor will not build until you explicitly approve the plan: a
+plain yes works. The change closes a defect where a vague "sounds good" could
+count as approval.
+
+First run now offers an exploration invitation (0.4.0). Before the wiki is
+created, you get offered a few read-only minutes to explore the codebase
+yourself: the mentor hands you three generic question shapes (trace a
+lifecycle, name an assumption and where it's enforced, what breaks if this
+is removed) and you point one at whatever code you choose. One keystroke to
+decline, no cost either way.
+
+Running a 0.2.0-era install? Run `/plugin marketplace update` to pick up
+both changes.
