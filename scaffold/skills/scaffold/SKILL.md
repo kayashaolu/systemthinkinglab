@@ -6,7 +6,10 @@ description: >
   of demonstrated understanding), and reports growth on every commit. Use when:
   the user invokes /scaffold; a scaffold-wiki/ directory exists in the repo and
   the user starts a coding task (bug fix, feature, refactor, investigation) or
-  makes a commit; or the user asks "what do I know?", "what are my gaps?", or
+  makes a commit; a scaffold-wiki/ directory exists and the user asks, in plain
+  words, at any point in a session, to explore or look around the codebase
+  themselves ("let me explore first", "I want to look around the code", "can I
+  explore"); or the user asks "what do I know?", "what are my gaps?", or
   similar progress questions. If no scaffold-wiki/ exists and the user did not
   explicitly ask for scaffold, do nothing.
 ---
@@ -294,6 +297,47 @@ If the user invokes scaffold and `scaffold-wiki/` does not exist:
 6. Append an `init` entry to `log.md`, recording the invitation's outcome — offered
    and accepted, or offered and declined.
 
+## Exploration on request
+
+Step 2 above is not the only entry point for exploration. Once `scaffold-wiki/`
+already exists, a learner can ask for the same read-only look at any point in
+a session, just by asking in plain words.
+
+1. **Recognition.** Any plain-language request to explore or look around,
+   anywhere in a session, once the wiki exists. Run it exactly as step 2
+   above describes: the same three question shapes offered there, the
+   learner still picks the target and points a shape at it, the same bounds
+   (read-only, no edits, no network), the same stop word, and the same
+   one-line statement that this is exploration, not a task, so predict, the
+   challenge gate, and Approve stay silent and no toll is spent.
+2. **Scope, as a boundary, not an omission.** If no `scaffold-wiki/` exists
+   yet and the learner has not explicitly invoked `/scaffold`, this section
+   is not the entry point; that case already has one, through `/scaffold`,
+   landing on step 2 above. This section never creates a wiki on its own.
+3. **Write-set, ruled out target by target.** An exploration run through this
+   entry point writes nothing. No page under `learner/` is created or
+   changed. No line is appended to `log.md`. No line is added to `index.md`.
+   Nothing under `codebase/` is created or changed. The pause below is
+   deliberately invisible to the log: the entry-type grammar in "Wiki
+   bookkeeping" below is a closed list, and it gets no new entry type for
+   this.
+4. **No offer.** Unlike step 2 above, this is the learner asking, not the
+   mentor offering. There is no invitation question here, no decline
+   handling, no silence-as-decline rule, and no landing step to fall into
+   afterward.
+5. **Pause and resume.** If a task is already open (a prediction has been
+   asked, a plan is under discussion, execution is underway), say in one
+   line that the open task is paused, run the exploration, then pick the
+   loop back up exactly where it was: the same step, nothing re-asked.
+   Predict, the challenge gate, and Approve are the three steps that must
+   never fire twice because of a pause here: each is a one-shot event (see
+   "Record" below, one prediction, one scoring event per concept), so a step
+   re-run on resume would double-count an event that only ever happens once.
+6. **Unaided, still.** A prediction made later in the session, after an
+   exploration run through either entry point, is still unaided; the rule
+   and why it holds are stated where predictions get scored, in "Record"
+   below.
+
 ## Session start (every session)
 
 Before the first task of a session, read — quickly, without narrating it:
@@ -314,11 +358,11 @@ yet) — a learner can init and run a task in the same session, or return on day
 already-initialized wiki that has never actually run a task. Check the log, not how long the wiki
 has existed.
 
-**If init's exploration invitation ran this same session, name the difference out loud** when you
-get here: that was an offer with no right answer and no cost either way; this predict question is
-the first rep, and it is the toll — the two predict-shaped asks genuinely co-occur on a fresh
-session 1, and a learner who just heard "no wrong answer" needs the switch flagged, not left to
-infer it.
+**If any exploration ran earlier in this session, whether offered at init or asked for directly
+(see "Exploration on request" above), name the difference out loud** when you get here: that was a
+free, read-only look with nothing scored either way; this predict question is the first rep, and it
+is the toll — the two predict-shaped asks genuinely co-occur on a fresh session 1, and a learner who
+just took that look needs the switch flagged, not left to infer it.
 
 **On session 1 only, invert the usual predict-step order:** state mode + size gate in one line,
 carrying the craft-mode contract statement from "Craft mode" above in the same breath, say in one
@@ -502,6 +546,9 @@ Update the wiki before executing, silently except where noted:
   prompt still counts as a miss (the prompt buys them the look, not the
   credit). A concept seen for the first time enters at **learning** — *even if
   they got it right* — with the (+) already banked, one rep from promotion.
+  A prediction that follows an exploration, by either entry point, is still
+  unaided: exploration is mentor-silent and supplied no answer, so it buys
+  the learner a look, never a hint.
 - **One prediction, one scoring event per concept.** The signed marks —
   (+), (−), (±) — attach exactly once per concept per prediction, to the
   claim they committed (for the concept a stake addresses, the staked claim;

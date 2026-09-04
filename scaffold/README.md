@@ -93,7 +93,8 @@ Then in any repo:
 First run offers an optional, read-only exploration of the codebase, yours,
 not a guided one (one keystroke to skip), then creates `scaffold-wiki/`
 (gitignored; your ledger is yours) and does a light pass over the codebase.
-From then on it engages automatically in that repo.
+From then on it engages automatically in that repo, and you can ask for that
+same read-only exploration again at any point in a session, just by saying so.
 
 ## The architecture, in its own vocabulary
 
@@ -137,7 +138,7 @@ itself, that's what the free resources at
 
 ## Status
 
-v0.4: an experiment in public. The loop, the mastery rules, and the coaching
+v0.5: an experiment in public. The loop, the mastery rules, and the coaching
 voice were calibrated through persona trials and real-junior dogfooding;
 direction mode is newer and less battle-tested than craft mode. Expect rough
 edges anyway. Issues and field reports very welcome.
@@ -154,5 +155,12 @@ lifecycle, name an assumption and where it's enforced, what breaks if this
 is removed) and you point one at whatever code you choose. One keystroke to
 decline, no cost either way.
 
+Exploration is no longer first-run-only (0.5.0). The same read-only look
+described above, same question shapes, same no-cost bounds, is now available
+on request at any point in a session once `scaffold-wiki/` exists, just by
+asking in plain words. Before the wiki exists, first run's own invitation
+above is still the entry point. If a task is already open, asking pauses it,
+runs the exploration, and picks the task back up exactly where it left off.
+
 Running a 0.2.0-era install? Run `/plugin marketplace update` to pick up
-both changes.
+all three changes.
