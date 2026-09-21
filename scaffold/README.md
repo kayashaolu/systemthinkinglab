@@ -1,13 +1,10 @@
 # Scaffold
 
-**An AI mentor for junior engineers.** It plans with you before it codes for
-you, keeps an honest ledger of what you've actually demonstrated you know, and
-turns every commit into a report on both your codebase and your growth.
+From [Systems Thinking Lab](https://systemthinkinglab.ai/?ref=scaffold), the workflow [Course 0](https://systemthinkinglab.ai/course-0.html?ref=scaffold) teaches.
 
-Most AI coding tools optimize one thing: the code. Scaffold optimizes two,
-with equal weight: the code, and *you*. Because a junior engineer is doing two
-jobs at once, shipping and learning, and a tool that does the first while
-silently skipping you past the second is how skills rot.
+**A plan-first developer workflow, run by an AI that works like a great mentor.** Scaffold predicts with you before it builds for you, keeps an honest ledger of what you've demonstrated you know, and turns every commit into a report on your codebase and your growth.
+
+Most AI coding tools optimize one thing: the code. Scaffold optimizes two, at equal weight: the code, and *you*. A junior engineer is doing two jobs at once, shipping and learning, and a tool that does the first while silently skipping you past the second is how skills rot.
 
 > *"What learning protects is your ability to build a mental model of why the
 > code works, not the typing. AI only hurts that when it skips you past the
@@ -18,16 +15,27 @@ Scaffold is the runnable version of that idea. It is derived from
 a persistent, compounding wiki the AI maintains, pointed at a new target:
 **the wiki becomes an external representation of your understanding.**
 
+## The workflow
+
+Four steps, every task:
+
+1. **Plan.** You predict first: what do you think should change, and why.
+2. **Diff and spar.** Scaffold answers with its own plan, as a diff against yours, and argues where it genuinely disagrees, before it builds.
+3. **Build with the parts you claim.** Anything you said you'd write, you write. Scaffold builds the rest.
+4. **Record.** Every commit reports what changed, what the wiki learned, and what you demonstrated. Two ledgers, kept separate (below).
+
+That habit breaks the day you're tired, rushed, or sure you already know the answer. Predicting first makes the disagreement between your plan and the AI's visible instead of invisible. The build waits on your yes, not the agent's. A record after means what you understood is written down, not just what shipped. Skip any of it and you're back to code you cannot defend.
+
+Learn it on real work: [Course 0](https://systemthinkinglab.ai/course-0.html?ref=scaffold) ($99, 8 lessons, 2 labs) teaches it end to end.
+
 ## What it does
 
-**Before you code: predict.** Give Scaffold a task and the first thing it asks
-is what *you* think should change, and why. Then it shows its own plan as a
-diff against yours: what you got right (banked as evidence), what it would
-change (max five items, ordered by stakes, each tagged with the concept behind
-it). When you genuinely disagree, it won't proceed until you've argued it out:
-*"if we shipped your plan as-is, which of my items would bite first?"* The
-back-and-forth is where judgement forms. An AI that only agrees teaches
-nothing.
+**Predict, in detail.** The diff Scaffold shows against your plan banks what
+you got right as evidence, and holds what it would change to five items,
+ordered by stakes, each tagged with the concept behind it. Genuine
+disagreement isn't waved through: Scaffold argues it out first, *"if we
+shipped your plan as-is, which of my items would bite first?"* An AI that
+only agrees teaches nothing.
 
 **Two ledgers, never merged.** The wiki keeps what the *AI* knows about your
 codebase (`codebase/`, `concepts/`) strictly separate from what *you've
@@ -65,7 +73,7 @@ why, separate from the mastery ledger and taking no signed marks of its own.
 ## Install
 
 Scaffold is a [Claude Code](https://claude.com/claude-code) plugin, distributed
-through the Systems Thinking Lab marketplace. Install it from inside Claude Code:
+through the Systems Thinking Lab marketplace:
 
 ```
 /plugin marketplace add kayashaolu/systemthinkinglab
@@ -90,20 +98,20 @@ Then in any repo:
 /scaffold
 ```
 
-First run offers an optional, read-only exploration of the codebase, yours,
-not a guided one (one keystroke to skip), then creates `scaffold-wiki/`
-(gitignored; your ledger is yours) and does a light pass over the codebase.
-From then on it engages automatically in that repo, and you can ask for that
-same read-only exploration again at any point in a session, just by saying so.
+First run offers an optional, read-only exploration of the codebase, yours
+(one keystroke to skip), then creates `scaffold-wiki/` (gitignored; your
+ledger is yours) and does a light pass over the codebase. From then on it
+engages automatically in that repo; you can ask for that same exploration
+again at any point in a session, just by saying so.
 
-## The architecture, in its own vocabulary
+## The architecture, as a design philosophy
 
 Scaffold describes every codebase using seven building blocks (Service,
 Worker, Key-Value Store, File Store, Queue, Relational Database, Vector
 Database) and three external entities (User, External Service, Time): a
-minimum viable vocabulary for system structure. Learn the seven blocks free at
-[systemthinkinglab.ai/learn](https://systemthinkinglab.ai/learn?ref=scaffold). Scaffold
-itself, in that vocabulary:
+design philosophy for system structure, usable at any experience level.
+Learn the seven free at [systemthinkinglab.ai/learn](https://systemthinkinglab.ai/learn?ref=scaffold).
+Scaffold itself, through that lens:
 
 - **User** (you) → **Service** (the mentor session: plans, diffs, answers)
 - **Time** (every git commit) → **Worker** (the commit report: integrates what
@@ -111,30 +119,33 @@ itself, in that vocabulary:
 - **File Store** (the wiki: plain markdown, the durable compounding artifact)
 - **External Service** (git: the record of what actually happened)
 
-No server, no database, no telemetry. The whole product is markdown, prompts,
-and conventions: the leverage is in the scaffolding, not the machinery.
+No server, no database, no telemetry: the whole product is markdown,
+prompts, and conventions, the leverage in the scaffolding, not the machinery.
 
 ## FAQ
 
 **Will it slow me down?** A size gate keeps the ritual proportional: typo-level
-changes skip it entirely, and the full loop charges one "struggle toll" per
-task, capped at minutes. If you tell it to just fix something, it pushes back
-once, then does it. It never holds work hostage.
+changes skip it, and the full loop charges one "struggle toll" per task,
+capped at minutes. Tell it to just fix something and it pushes back once,
+then does it. It never holds work hostage.
 
-**Who can see my ledger?** Nobody. The wiki is plain markdown on your machine,
-gitignored by default, sent nowhere. Sharing it with a mentor is your call,
-never a default. When you do want to share something specific, `/scaffold
-export` renders exactly the entries you name, verbatim, into one dated file,
-instead of handing over the whole wiki.
+**Who can see my ledger?** Nobody. The wiki is plain markdown on your
+machine, gitignored by default, sent nowhere. Sharing it with a mentor is
+your call, never a default. To share something specific, `/scaffold export`
+renders exactly the entries you name, verbatim, into one dated file, instead
+of the whole wiki.
 
-**Does it work with other agents?** The skill format is Claude Code's, but the
-wiki schema is plain markdown: `scaffold-wiki/SCHEMA.md` is readable by any
+**Does it work with other agents?** The skill format is Claude Code's, but
+the wiki schema is plain markdown: `scaffold-wiki/SCHEMA.md` reads in any
 agent, and porting the loop to an AGENTS.md is straightforward. PRs welcome.
 
-**Is this a course?** No. It's free and it works on your real job. If the
-concepts it keeps tagging in your diffs make you want to learn the framework
-itself, that's what the free resources at
-[systemthinkinglab.ai/learn](https://systemthinkinglab.ai/learn?ref=scaffold) are for.
+**Is this a course?** No. It's free and works on your real job. If you want
+to learn this workflow in full, [Course 0](https://systemthinkinglab.ai/course-0.html?ref=scaffold)
+($99, 8 lessons and 2 labs) teaches it on real work; if you want the seven
+building blocks behind the concepts it tags in your diffs, applied to real
+systems, that's [Courses I-IV](https://systemthinkinglab.ai/courses-i-iv.html?ref=scaffold)
+($299, one bundle). Both optional: the blocks themselves are free to read at
+[systemthinkinglab.ai/learn](https://systemthinkinglab.ai/learn?ref=scaffold).
 
 ## Status
 
@@ -164,3 +175,15 @@ runs the exploration, and picks the task back up exactly where it left off.
 
 Running a 0.2.0-era install? Run `/plugin marketplace update` to pick up
 all three changes.
+
+## Who makes this
+
+Kay Ashaolu. Continuing Lecturer at UC Berkeley School of Information, 15+
+years as a software engineer and engineering manager (AncestryDNA, Morgan
+Stanley). The mission in one line: teaching engineers how to direct AI and
+still get stronger doing it.
+
+[systemthinkinglab.ai](https://systemthinkinglab.ai/?ref=scaffold) ·
+[Course 0, $99](https://systemthinkinglab.ai/course-0.html?ref=scaffold) ·
+[Courses I-IV, $299](https://systemthinkinglab.ai/courses-i-iv.html?ref=scaffold) ·
+[The 7 building blocks, free](https://systemthinkinglab.ai/learn?ref=scaffold)
