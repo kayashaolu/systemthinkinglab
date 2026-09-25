@@ -171,4 +171,4 @@ Defaults are there to get you started, not to constrain you. A framework that te
 
 ## When the tech changes
 
-The defaults above are good for 2026. They will be different in 2030. The pattern recognition that makes you choose the right tool for the right pattern is what stays durable. [Course I: Universal Building Blocks](https://systemthinkinglab.ai/course-1) teaches that recognition through interface-thinking labs and case studies of how real companies pick (and outgrow) their stacks.
+The defaults above are good for 2026. They will be different in 2030. The pattern recognition that makes you choose the right tool for the right pattern is what stays durable. Course 0 teaches the workflow for directing the AI that writes the code; Courses I-IV teach that recognition through interface-thinking labs and case studies of how real companies pick (and outgrow) their stacks.

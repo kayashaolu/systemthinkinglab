@@ -34,4 +34,4 @@ The key property: you call it, you do not control it. It can be slow. It can be 
 
 ## Go deeper
 
-Reading this page gives you the vocabulary for External Service as an external force. Recognizing it across systems you have never seen, and designing for it deliberately, takes reps. [Course I: Universal Building Blocks](https://systemthinkinglab.ai/course-1) teaches those reps through hands-on discovery labs and AI-graded design challenges.
+Reading this page gives you the vocabulary for External Service as an external force. Recognizing it under pressure, in codebases you did not write, interviews, and design reviews, takes reps. Courses I-IV give you those reps through hands-on discovery labs, design challenges with feedback on your reasoning, and real-company case studies; the path starts with Course 0.

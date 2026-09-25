@@ -17,6 +17,7 @@ first when looking for anything.*
 
 ## Judgment trail (direction mode)
 
-*(empty until direction mode or `/scaffold export` is used for the first
+*(empty until direction mode or the export step (in Claude Code, `/scaffold
+export`) is used for the first
 time — `judgment-log.md`, `briefs/`, and `artifacts/` are created lazily;
 see SCHEMA.md)*

@@ -11,20 +11,20 @@ Describe your app in plain English. The skill walks you through a 10-minute conv
 Every system, from Instagram to Stripe, is composed of the same seven primitives:
 
 **Task primitives (blue)**
-- **Service** — synchronous; caller waits for the answer
-- **Worker** — asynchronous; runs after the caller has moved on
+- **Service:** synchronous; caller waits for the answer
+- **Worker:** asynchronous; runs after the caller has moved on
 
 **Storage primitives (pink)**
-- **Key-Value Store** — fast lookup by one key
-- **File Store** — blob storage for images, videos, documents
-- **Queue** — decoupled async messaging
-- **Relational Database** — structured data with relationships
-- **Vector Database** — similarity search via embeddings
+- **Key-Value Store:** fast lookup by one key
+- **File Store:** blob storage for images, videos, documents
+- **Queue:** decoupled async messaging
+- **Relational Database:** structured data with relationships
+- **Vector Database:** similarity search via embeddings
 
 **External entities (green)**
-- **User** — human or AI agent calling in
-- **External Service** — third-party APIs you call out to
-- **Time** — the clock as a system input
+- **User:** human or AI agent calling in
+- **External Service:** third-party APIs you call out to
+- **Time:** the clock as a system input
 
 ## Installation
 
@@ -47,6 +47,16 @@ Then type `/design-with-blocks` to invoke. Updates later are just
 3. Paste the contents of `skills/design-with-blocks/SKILL.md` as the Project's custom instructions.
 4. Start a chat and say "design my app."
 
+### Option C: Other agents
+
+Install the skill for agents other than Claude Code:
+
+```
+npx skills add kayashaolu/systemthinkinglab --skill design-with-blocks
+```
+
+It lands in your project's `.agents/skills/design-with-blocks/` as an Agent Skill; Claude Code is where the skill is built and tested.
+
 ## Usage
 
 ```
@@ -59,7 +69,7 @@ Target session length: 10 to 15 minutes.
 
 ## Credits
 
-The 7 building blocks framework is the intellectual work of Kay Ashaolu, founder of Systems Thinking Lab. This skill is a free, public expression of the framework's design-pass logic. If you want pattern literacy — the ability to design any future system without a tool like this — you can learn the 7 building blocks for free at [systemthinkinglab.ai/learn](https://systemthinkinglab.ai/learn?ref=design-with-blocks).
+The 7 building blocks framework is the intellectual work of Kay Ashaolu, founder of Systems Thinking Lab. This skill is a free, public expression of the framework's design-pass logic. If you want pattern literacy, the ability to design any future system without a tool like this, you can learn the 7 building blocks for free at [systemthinkinglab.ai/learn](https://systemthinkinglab.ai/learn?ref=design-with-blocks).
 
 ## License
 

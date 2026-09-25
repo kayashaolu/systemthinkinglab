@@ -205,7 +205,8 @@ exposing the whole wiki: the excerpt already lives inside the entry that
 cites it.
 
 When the learner wants to hand a specific set of entries to someone else — a
-mentor, a manager, a grader — run **`/scaffold export`**. They name which
+mentor, a manager, a grader — run the export step (in Claude Code, `/scaffold export`). They name
+which
 entries; you render exactly those, verbatim, with a dated attestation
 header, to `scaffold-wiki/artifacts/judgment-export-YYYY-MM-DD-<slug>.md`
 (from `templates/judgment-export.md`, creating the `artifacts/` directory on
@@ -273,7 +274,8 @@ If the user invokes scaffold and `scaffold-wiki/` does not exist:
    `briefs/`, `judgment-log.md` (from `templates/judgment-log.md`), and
    `artifacts/` (from `templates/judgment-export.md`) — are **not** created
    at init; they come into existence the first time the learner actually
-   uses direction mode or runs `/scaffold export`, same lazy-creation
+   uses direction mode or runs the export step (in Claude Code, `/scaffold export`), same
+   lazy-creation
    pattern as a learner page.
 4. Add `scaffold-wiki/` to `.gitignore` (or to the local exclude file —
    `git rev-parse --git-path info/exclude`, since `.git` is a file in linked
@@ -285,8 +287,9 @@ If the user invokes scaffold and `scaffold-wiki/` does not exist:
    you want a mentor to be able to read it, remove the ignore line."*
 5. Do a **light ingest** so the wiki is not empty on day one: read the README
    and the architecture-relevant parts of any agent-instruction files at the
-   root (CLAUDE.md, AGENTS.md — often
-   the truest architecture doc), every dependency manifest within two
+   root (the project's agent-instructions file: CLAUDE.md in Claude Code,
+   AGENTS.md elsewhere, often the truest architecture doc), every dependency
+   manifest within two
    directory levels, any deploy config at the root (netlify.toml, Dockerfile,
    fly.toml), and the top-level directory structure. If the README is a stub,
    say so on the page and lean on the rest. Write
@@ -311,8 +314,8 @@ a session, just by asking in plain words.
    one-line statement that this is exploration, not a task, so predict, the
    challenge gate, and Approve stay silent and no toll is spent.
 2. **Scope, as a boundary, not an omission.** If no `scaffold-wiki/` exists
-   yet and the learner has not explicitly invoked `/scaffold`, this section
-   is not the entry point; that case already has one, through `/scaffold`,
+   yet and the learner has not explicitly invoked the skill (in Claude Code, `/scaffold`), this
+   section is not the entry point; that case already has one, through that same invocation,
    landing on step 2 above. This section never creates a wiki on its own.
 3. **Write-set, ruled out target by target.** An exploration run through this
    entry point writes nothing. No page under `learner/` is created or
@@ -841,7 +844,8 @@ teaches the wrong thing.
   at init.
 - `briefs/`: one file per direction-mode brief, from
   `templates/direction-brief.md`, created on first direction-mode use.
-- `artifacts/`: selective exports written by `/scaffold export` — see
+- `artifacts/`: selective exports written by the export step (in Claude Code, `/scaffold export`),
+  see
   "Excerpt and export" above. Created on first export.
 - `SCHEMA.md`: the wiki's own rules. When you and the learner settle a better
   convention (a new page type, a changed ritual weight), record it there — it
@@ -868,7 +872,8 @@ teaches the wrong thing.
   reassurance, twice in a day is suspicious): the wiki is plain
   markdown on their machine, gitignored by default, sent nowhere. The learner
   ledger is theirs; sharing it with a mentor or manager is their call to make,
-  never a default. If they want to share part of it, `/scaffold export` (see
+  never a default. If they want to share part of it, the export step (in Claude Code,
+  `/scaffold export`; see
   "Excerpt and export" above) is the sanctioned path — it lets them name
   exactly which entries go out, verbatim, in a dated file they control,
   instead of handing over the raw wiki.

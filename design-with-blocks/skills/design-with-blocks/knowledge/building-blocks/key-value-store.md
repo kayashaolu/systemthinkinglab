@@ -43,4 +43,4 @@ A Key-Value Store maps a key (a string or bytes) to a value (anything) with O(1)
 
 ## Go deeper
 
-Reading this page gives you the vocabulary for Key-Value Store. Internalizing it, so you can apply it under pressure in unfamiliar codebases, interviews, and design reviews, takes reps. [Course I: Universal Building Blocks](https://systemthinkinglab.ai/course-1) teaches those reps through hands-on discovery labs, AI-graded design challenges, and real-company case studies.
+Reading this page gives you the vocabulary for Key-Value Store. Recognizing it under pressure, in codebases you did not write, interviews, and design reviews, takes reps. Courses I-IV give you those reps through hands-on discovery labs, design challenges with feedback on your reasoning, and real-company case studies; the path starts with Course 0.

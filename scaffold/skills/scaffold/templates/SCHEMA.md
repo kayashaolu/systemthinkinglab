@@ -18,11 +18,13 @@ scaffold-wiki/
 ├── learner/           # LEDGER 2: what YOU have demonstrated — mastery + dated evidence
 │   └── profile.md     # summary: strengths, gaps, trajectory
 ├── briefs/            # direction-mode: one file per brief (created on first use)
-└── artifacts/         # selective exports from `/scaffold export` (created on first use)
+└── artifacts/         # selective exports from the export step, `/scaffold export`
+    in Claude Code (created on first use)
 ```
 
 `judgment-log.md`, `briefs/`, and `artifacts/` don't exist until direction
-mode or `/scaffold export` is used for the first time — same lazy-creation
+mode or the export step (`/scaffold export` in Claude Code) is used for the first
+time, same lazy-creation
 pattern as a learner page. A craft-mode-only wiki never grows them, and
 that's fine.
 

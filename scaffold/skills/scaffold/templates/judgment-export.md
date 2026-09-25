@@ -1,13 +1,15 @@
 # Judgment export — SLUG
 
-<!-- Rendered by the `/scaffold export` ritual (see SKILL.md's "Excerpt and
+<!-- Rendered by the export ritual (in Claude Code, `/scaffold export`; see
+     SKILL.md's "Excerpt and
      export" section). Saved to
      scaffold-wiki/artifacts/judgment-export-YYYY-MM-DD-<slug>.md
      Nothing about this ritual sends anything anywhere — it produces this one
      file, on the learner's own machine, and they decide what happens to it. -->
 
 **Attestation:** this file was rendered by the scaffold agent at the
-learner's explicit request via `/scaffold export` on YYYY-MM-DD, from the
+learner's explicit request via the export step (`/scaffold export` in Claude Code)
+on YYYY-MM-DD, from the
 entries named below, copied verbatim from `scaffold-wiki/` with nothing
 reconstructed, summarized, paraphrased, or edited for the export, and no
 other part of the wiki included. It is **not independently signed or

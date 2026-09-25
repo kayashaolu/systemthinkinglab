@@ -48,4 +48,4 @@ Memorable. Teachable. Hard to confuse with anything else.
 
 ## Where these come alive
 
-The analogies above are memorable on the page. They become instinct, not reference, when you have run discovery labs that put each pattern under pressure. [Course I: Universal Building Blocks](https://systemthinkinglab.ai/course-1) builds them into your hands, not just your notes.
+The analogies above are memorable on the page. They become instinct, not reference, when you have run discovery labs that put each pattern under pressure. Course 0 teaches the workflow; Courses I-IV build these into your hands, not just your notes.

@@ -3,7 +3,7 @@
   "owner": {
     "name": "Kay Ashaolu"
   },
-  "description": "Systems Thinking Lab tools for Claude Code.",
+  "description": "Systems Thinking Lab's free tools: design an app, review a design, and build it plan-first with a mentor, all on the 7 Universal Building Blocks.",
   "plugins": [
     {
       "name": "design-with-blocks",

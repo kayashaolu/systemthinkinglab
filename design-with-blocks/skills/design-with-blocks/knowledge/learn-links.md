@@ -42,4 +42,4 @@ Do not link-dump. One link per surfaced block, inline. The goal is "when the use
 
 ## Beyond /learn
 
-The /learn posts give you the framework. To internalize it through hands-on labs, AI-graded design challenges, and case studies of Instagram, Netflix, and Uber, see [Course I: Universal Building Blocks](https://systemthinkinglab.ai/course-1).
+The /learn posts give you the framework. To internalize it, start with Course 0, the workflow for directing AI on real work, then go as deep as Courses I-IV: hands-on labs, design challenges with feedback on your reasoning, and case studies of Instagram, Netflix, and Uber, at [systemthinkinglab.ai](https://systemthinkinglab.ai).

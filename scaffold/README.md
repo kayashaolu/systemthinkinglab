@@ -104,6 +104,14 @@ ledger is yours) and does a light pass over the codebase. From then on it
 engages automatically in that repo; you can ask for that same exploration
 again at any point in a session, just by saying so.
 
+In an agent other than Claude Code:
+
+```
+npx skills add kayashaolu/systemthinkinglab --skill scaffold
+```
+
+It installs into your project's `.agents/skills/scaffold/` as an Agent Skill; it's built and tested in Claude Code.
+
 ## The architecture, as a design philosophy
 
 Scaffold describes every codebase using seven building blocks (Service,
@@ -135,9 +143,10 @@ your call, never a default. To share something specific, `/scaffold export`
 renders exactly the entries you name, verbatim, into one dated file, instead
 of the whole wiki.
 
-**Does it work with other agents?** The skill format is Claude Code's, but
-the wiki schema is plain markdown: `scaffold-wiki/SCHEMA.md` reads in any
-agent, and porting the loop to an AGENTS.md is straightforward. PRs welcome.
+**Does it work with other agents?** It installs in them:
+`npx skills add kayashaolu/systemthinkinglab --skill scaffold` puts it in your project's
+`.agents/skills/scaffold/` as an Agent Skill, and `scaffold-wiki/SCHEMA.md` reads in any agent.
+The skill is built and tested in Claude Code.
 
 **Is this a course?** No. It's free and works on your real job. If you want
 to learn this workflow in full, [Course 0](https://systemthinkinglab.ai/course-0.html?ref=scaffold)
