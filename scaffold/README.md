@@ -1,6 +1,6 @@
 # Scaffold
 
-From [Systems Thinking Lab](https://systemthinkinglab.ai/?ref=scaffold), the workflow [Course 0](https://systemthinkinglab.ai/course-0.html?ref=scaffold) teaches.
+From [Systems Thinking Lab](https://systemthinkinglab.ai/?ref=scaffold): a Claude Code plugin for junior engineers who want to keep learning while they ship with AI.
 
 **A plan-first developer workflow, run by an AI that works like a great mentor.** Scaffold predicts with you before it builds for you, keeps an honest ledger of what you've demonstrated you know, and turns every commit into a report on your codebase and your growth.
 
@@ -25,8 +25,6 @@ Four steps, every task:
 4. **Record.** Every commit reports what changed, what the wiki learned, and what you demonstrated. Two ledgers, kept separate (below).
 
 That habit breaks the day you're tired, rushed, or sure you already know the answer. Predicting first makes the disagreement between your plan and the AI's visible instead of invisible. The build waits on your yes, not the agent's. A record after means what you understood is written down, not just what shipped. Skip any of it and you're back to code you cannot defend.
-
-Learn it on real work: [Course 0](https://systemthinkinglab.ai/course-0.html?ref=scaffold) ($99, 8 lessons, 2 labs) teaches it end to end.
 
 ## What it does
 
@@ -148,13 +146,11 @@ of the whole wiki.
 `.agents/skills/scaffold/` as an Agent Skill, and `scaffold-wiki/SCHEMA.md` reads in any agent.
 The skill is built and tested in Claude Code.
 
-**Is this a course?** No. It's free and works on your real job. If you want
-to learn this workflow in full, [Course 0](https://systemthinkinglab.ai/course-0.html?ref=scaffold)
-($99, 8 lessons and 2 labs) teaches it on real work; if you want the seven
-building blocks behind the concepts it tags in your diffs, applied to real
-systems, that's [Courses I-IV](https://systemthinkinglab.ai/courses-i-iv.html?ref=scaffold)
-($299, one bundle). Both optional: the blocks themselves are free to read at
+**Is this a course?** No. It's free and works on your real job. The seven
+building blocks behind the concepts it tags in your diffs are free to read at
 [systemthinkinglab.ai/learn](https://systemthinkinglab.ai/learn?ref=scaffold).
+Systems Thinking Lab also publishes [Course 0](https://systemthinkinglab.ai/course-0.html?ref=scaffold),
+which teaches this workflow on real work.
 
 ## Status
 
@@ -192,7 +188,4 @@ years as a software engineer and engineering manager (AncestryDNA, Morgan
 Stanley). The mission in one line: teaching engineers how to direct AI and
 still get stronger doing it.
 
-[systemthinkinglab.ai](https://systemthinkinglab.ai/?ref=scaffold) ·
-[Course 0, $99](https://systemthinkinglab.ai/course-0.html?ref=scaffold) ·
-[Courses I-IV, $299](https://systemthinkinglab.ai/courses-i-iv.html?ref=scaffold) ·
-[The 7 building blocks, free](https://systemthinkinglab.ai/learn?ref=scaffold)
+Made by [Systems Thinking Lab](https://systemthinkinglab.ai/?ref=scaffold). Free reading: [systemthinkinglab.ai/learn](https://systemthinkinglab.ai/learn?ref=scaffold). [Course 0](https://systemthinkinglab.ai/course-0.html?ref=scaffold) teaches this workflow on real work.

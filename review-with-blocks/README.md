@@ -43,7 +43,7 @@ Installs into your project's `.agents/skills/review-with-blocks/` as an Agent Sk
 
 ## Why building blocks
 
-Every system, from Instagram to Stripe, is composed of the same seven primitives (Service, Worker, Key-Value Store, File Store, Queue, Relational Database, Vector Database) plus three external entities (User, External Service, Time). Reviewing through that lens judges the *architecture*, which AI cannot do for you, instead of nitpicking syntax. Learn the 7 building blocks free at [systemthinkinglab.ai/learn](https://systemthinkinglab.ai/learn?ref=review-with-blocks).
+Every system, from Instagram to Stripe, is composed of the same seven primitives (Service, Worker, Key-Value Store, File Store, Queue, Relational Database, Vector Database) plus three external entities (User, External Service, Time). Reviewing through that lens judges the *architecture* instead of nitpicking syntax. The 7 building blocks are free to read at [systemthinkinglab.ai/learn](https://systemthinkinglab.ai/learn?ref=review-with-blocks).
 
 ## License
 

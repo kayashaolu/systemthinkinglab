@@ -32,4 +32,4 @@ A User is anyone outside the system who initiates requests into it. Traditionall
 
 ## Go deeper
 
-Reading this page gives you the vocabulary for User as an external force. Recognizing it under pressure, in codebases you did not write, interviews, and design reviews, takes reps. Courses I-IV give you those reps through hands-on discovery labs, design challenges with feedback on your reasoning, and real-company case studies; the path starts with Course 0.
+Reading this page gives you the vocabulary for User as an external force. Recognizing it under pressure, in codebases you did not write, interviews, and design reviews, takes reps.

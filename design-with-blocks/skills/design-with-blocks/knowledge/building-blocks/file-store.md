@@ -46,4 +46,4 @@ A File Store holds files. You put a file in, you get a URL or key out. You fetch
 
 ## Go deeper
 
-Reading this page gives you the vocabulary for File Store. Recognizing it under pressure, in codebases you did not write, interviews, and design reviews, takes reps. Courses I-IV give you those reps through hands-on discovery labs, design challenges with feedback on your reasoning, and real-company case studies; the path starts with Course 0.
+Reading this page gives you the vocabulary for File Store. Recognizing it under pressure, in codebases you did not write, interviews, and design reviews, takes reps.

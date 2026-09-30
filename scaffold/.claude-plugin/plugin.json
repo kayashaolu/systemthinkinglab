@@ -1,7 +1,7 @@
 {
   "name": "scaffold",
   "description": "A plan-first developer workflow, run by an AI mentor: it predicts before it builds, keeps a compounding wiki of your codebase, and holds an honest ledger of what you've demonstrated you know, in craft or direction mode.",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "author": {
     "name": "Kay Ashaolu",
     "url": "https://systemthinkinglab.ai"

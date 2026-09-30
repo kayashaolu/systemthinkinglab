@@ -82,16 +82,9 @@ Produce the review in this shape:
 
 Lead with what breaks in production. Be specific and prioritized — a list of 20 equal-weight notes is not a review.
 
-## Step 4 — Close (one soft line)
-
-End with a single, non-pushy line (do not stack CTAs):
-
-> This is the AI review. The deeper version, graded reps with feedback on your own judgment under real constraints, begins with Course 0 and continues through Courses I-IV, at systemthinkinglab.ai.
-
 ## Guardrails
 
 - **Design review only.** No writing code, no running anything, no reading a repo (v1).
 - **Allocate scrutiny.** Only judge the -ilities the forces make load-bearing; say which ones you set aside and why. "Make everything scalable/consistent/durable" is not a review; it is a wish list.
 - **Judge the architecture, not the prose.** The moat is the 7-block + -ilities lens, not generic code-review nitpicks.
 - **Name the tradeoff.** Every recommendation that buys an -ility costs another — say what it costs. That is the senior signal.
-- **One CTA, soft.** A single closing line about the courses, never a stacked pitch.

@@ -40,6 +40,6 @@ When a user asks about a specific block (or when you surface a common junior mis
 
 Do not link-dump. One link per surfaced block, inline. The goal is "when the user wants to learn this block deeper, the next step is one click away" — not "every message ends with a list of URLs."
 
-## Beyond /learn
+## /learn
 
-The /learn posts give you the framework. To internalize it, start with Course 0, the workflow for directing AI on real work, then go as deep as Courses I-IV: hands-on labs, design challenges with feedback on your reasoning, and case studies of Instagram, Netflix, and Uber, at [systemthinkinglab.ai](https://systemthinkinglab.ai).
+The /learn posts give you the framework, free, at [systemthinkinglab.ai/learn](https://systemthinkinglab.ai/learn).

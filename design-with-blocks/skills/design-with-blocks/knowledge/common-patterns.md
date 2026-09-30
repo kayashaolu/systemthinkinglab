@@ -77,4 +77,4 @@ The patterns above are not exhaustive. They are enough to recognize about 80 per
 
 ## Where these become instinct
 
-Recognizing these patterns in someone else's diagram is one thing. Composing them yourself for a system you have never seen is another. Start with Course 0 for the workflow; Courses I-IV build that fluency through progressive design challenges and hands-on discovery labs.
+Recognizing these patterns in someone else's diagram is one thing. Composing them yourself for a system you have never seen is another.

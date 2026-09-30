@@ -41,7 +41,7 @@ Each skill lands in your project's `.agents/skills/<name>/` as an Agent Skill; t
 | **review-with-blocks** | Review a finished system design against the 7 building blocks and the non-functional "-ilities": decompose it, flag wrong/missing/over-engineered blocks, rate each load-bearing -ility (holds / at-risk / gap) with its tradeoff, and surface the questions a senior would ask. |
 | **scaffold** | A plan-first developer workflow, run by an AI mentor: it predicts before it builds, keeps a compounding wiki of your codebase, and holds an honest ledger of what you've demonstrated you know, in craft or direction mode. |
 
-All three are free, open source (Apache-2.0), and installable by anyone. Together they cover the arc **design → build → review**: design-with-blocks plans the architecture, scaffold runs the plan-first workflow while you build it, and review-with-blocks judges the result. All three use the seven building blocks Courses I-IV teach in full; the path starts with Course 0.
+All three are free, open source (Apache-2.0), and installable by anyone. Together they cover the arc **design → build → review**: design-with-blocks plans the architecture, scaffold runs the plan-first workflow while you build it, and review-with-blocks judges the result. All three use the seven building blocks, free to read at systemthinkinglab.ai/learn.
 
 ## The framework
 
