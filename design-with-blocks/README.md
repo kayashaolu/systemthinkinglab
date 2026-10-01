@@ -67,6 +67,10 @@ The skill will ask two intake questions, walk through the external entities that
 
 Target session length: 10 to 15 minutes.
 
+### What runs locally
+
+The last step of the skill runs a bundled Python script, `skills/design-with-blocks/render/render.py`, to draw the architecture diagram as a PNG from the design JSON it produced. The script uses Pillow and networkx (installed once from `render/requirements.txt`), writes `architecture.png` to your current directory, and makes no network calls. Nothing is read from or sent to any service; the only data involved is the design you described in the session.
+
 ## Credits
 
 The 7 building blocks framework is the intellectual work of Kay Ashaolu, founder of Systems Thinking Lab. This skill is a free, public expression of the framework's design-pass logic. The 7 building blocks are free to read at [systemthinkinglab.ai/learn](https://systemthinkinglab.ai/learn?ref=design-with-blocks).
