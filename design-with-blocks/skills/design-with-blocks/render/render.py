@@ -1,8 +1,8 @@
 """
-Compose canonical 7-block icons into a system design PNG.
+Draw canonical 7-block glyphs into a system design PNG.
 
 Reads a structured design (nodes + edges), uses networkx for auto-layout,
-and PIL to composite icons + labels + arrows into a single PNG that
+and PIL to draw glyphs + labels + arrows into a single PNG that
 matches the visual identity of the Systems Thinking Lab videos.
 
 CLI:
@@ -20,21 +20,6 @@ import math
 import json
 import sys
 import argparse
-
-ICON_DIR = Path(__file__).parent / "icons"
-
-ICON_FILES = {
-    "service": "service.png",
-    "worker": "worker.png",
-    "queue": "queue.png",
-    "key_value_store": "key_value_store.png",
-    "file_store": "file_store.png",
-    "relational_database": "relational_db.png",
-    "vector_database": "vector_db.png",
-    "user": "user.png",
-    "external_service": "external_service.png",
-    "time": "time.png",
-}
 
 BLOCK_NAMES = {
     "service": "Service",
@@ -89,20 +74,173 @@ BG_COLOR = (255, 255, 255, 255)
 LABEL_HEIGHT = 40     # reserved vertical space for label under each icon
 
 
-_icon_cache = {}
+# Palette: brand canon (marketing/brand/logo-circle.html) and the site CSS
+# (site/src/assets/css/blog.css:636-689, site/src/index.njk:330-340).
+TASK_FILL = "#5b9bd5"      # Service, Worker
+STORAGE_FILL = "#e89bb8"   # Queue, Key-Value, File Store, Relational DB, Vector DB
+ENTITY_FILL = "#c8e6c9"    # User, External Service, Time
 
-def load_icon(block_type, size=ICON_SIZE):
+# OUTLINE is an override: None (shipped) leaves it to the per-type rule below;
+# a colour string outlines all ten glyphs. Kept as the seam the union-outline
+# passes (relational database, external service) are tested through.
+OUTLINE = None
+# The three entity glyphs carry a 2px #4a5568 border on the site (fill #c8e6c9,
+# blog.css); the seven blocks stay flat (1680 FLAG A ruling, decision 1681).
+ENTITY_OUTLINE = "#4a5568"
+
+SUPERSAMPLE = 4
+OUTLINE_WIDTH = 6  # at 4x drawing scale
+
+# Measured from the pre-1680 PNG tiles. 110 is 110.5 rounded half-to-even,
+# so never compute it from a ratio.
+GLYPH_BOX = {ICON_SIZE: (130, 110), LEGEND_ICON_SIZE: (48, 41)}
+
+GLYPH_FILL = {
+    "service": TASK_FILL, "worker": TASK_FILL,
+    "queue": STORAGE_FILL, "key_value_store": STORAGE_FILL,
+    "file_store": STORAGE_FILL, "relational_database": STORAGE_FILL,
+    "vector_database": STORAGE_FILL,
+    "user": ENTITY_FILL, "external_service": ENTITY_FILL, "time": ENTITY_FILL,
+}
+
+
+def _rgb(hexstr):
+    h = hexstr.lstrip("#")
+    return tuple(int(h[i:i + 2], 16) for i in (0, 2, 4))
+
+
+def _mix(hexstr, other, t):
+    """Blend hexstr toward other (RGB tuple) by t; returns an RGB tuple."""
+    c = _rgb(hexstr)
+    return tuple(int(round(c[i] + (other[i] - c[i]) * t)) for i in range(3))
+
+
+def _rounded_poly(points, r, steps=8):
+    """Round a convex polygon's corners with quadratic curves, then rescale
+    so the result spans the original bounding box exactly."""
+    n = len(points)
+    out = []
+    for i in range(n):
+        p0, p1, p2 = points[i - 1], points[i], points[(i + 1) % n]
+        def toward(a, b):
+            dx, dy = b[0] - a[0], b[1] - a[1]
+            d = math.hypot(dx, dy) or 1.0
+            k = min(r, d / 2) / d
+            return (a[0] + dx * k, a[1] + dy * k)
+        s, e = toward(p1, p0), toward(p1, p2)
+        for j in range(steps + 1):
+            t = j / steps
+            out.append(((1 - t) ** 2 * s[0] + 2 * (1 - t) * t * p1[0] + t * t * e[0],
+                        (1 - t) ** 2 * s[1] + 2 * (1 - t) * t * p1[1] + t * t * e[1]))
+    ox0 = min(p[0] for p in points); ox1 = max(p[0] for p in points)
+    oy0 = min(p[1] for p in points); oy1 = max(p[1] for p in points)
+    nx0 = min(p[0] for p in out); nx1 = max(p[0] for p in out)
+    ny0 = min(p[1] for p in out); ny1 = max(p[1] for p in out)
+    return [(ox0 + (x - nx0) * (ox1 - ox0) / (nx1 - nx0),
+             oy0 + (y - ny0) * (oy1 - oy0) / (ny1 - ny0)) for x, y in out]
+
+
+class _Offset:
+    """Wraps an ImageDraw so every shape is translated by (dx, dy)."""
+    def __init__(self, draw, dx, dy):
+        self._d, self._dx, self._dy = draw, dx, dy
+
+    def _flat(self, xy):
+        if isinstance(xy[0], (tuple, list)):
+            return [(x + self._dx, y + self._dy) for x, y in xy]
+        return [v + (self._dx if i % 2 == 0 else self._dy) for i, v in enumerate(xy)]
+
+    def __getattr__(self, name):
+        fn = getattr(self._d, name)
+        return lambda xy, *a, **k: fn(self._flat(xy), *a, **k)
+
+
+def draw_glyph(draw, block_type, box):
+    """Paint one block glyph so its visible shape fills box=(x0, y0, x1, y1)
+    (inclusive pixel corners, as Pillow describes a box) on both axes."""
+    fill_hex = GLYPH_FILL[block_type]  # KeyError on an unknown type
+    outline = OUTLINE or (ENTITY_OUTLINE if block_type in ENTITY_TYPES else None)
+    x0, y0, x1, y1 = box
+    W, H = x1 - x0, y1 - y0
+    draw = _Offset(draw, x0, y0)
+    ow = OUTLINE_WIDTH if outline else 0
+    kw = {"outline": outline, "width": ow} if outline else {}
+    fill = _rgb(fill_hex)
+    light = _mix(fill_hex, (255, 255, 255), 0.45)
+    dark = _mix(fill_hex, (0, 0, 0), 0.22)
+    ink = _mix(fill_hex, (0, 0, 0), 0.55)
+
+    def pct(pts):
+        return [(x * W, y * H) for x, y in pts]
+
+    if block_type == "service":
+        draw.rounded_rectangle([0, 0, W, H], radius=W * 0.12, fill=fill, **kw)
+    elif block_type == "worker":
+        draw.polygon(pct([(.16, 0), (.84, 0), (1, 1), (0, 1)]), fill=fill, **kw)
+    elif block_type == "key_value_store":
+        pts = pct([(.5, 0), (1, .5), (.5, 1), (0, .5)])
+        draw.polygon(_rounded_poly(pts, W * 0.09), fill=fill, **kw)
+    elif block_type == "file_store":
+        draw.polygon(pct([(.5, 0), (1, .38), (.82, 1), (.18, 1), (0, .38)]), fill=fill, **kw)
+    elif block_type == "queue":
+        dx, dy = W * 0.09, H * 0.11
+        rw, rh = W - 2 * dx, H - 2 * dy
+        for i, shade in enumerate((light, _mix(fill_hex, (255, 255, 255), 0.22), fill)):
+            ox, oy = (2 - i) * dx, i * dy
+            draw.rounded_rectangle([ox, oy, ox + rw, oy + rh], radius=W * 0.06, fill=shade, **kw)
+    elif block_type == "relational_database":
+        eh = H * 0.28
+        if outline:  # outline the union: outline-colour pass, then inset fill pass
+            draw.ellipse([0, H - eh, W, H], fill=outline)
+            draw.rectangle([0, eh / 2, W, H - eh / 2], fill=outline)
+            draw.ellipse([ow, H - eh + ow, W - ow, H - ow], fill=fill)
+            draw.rectangle([ow, eh / 2, W - ow, H - eh / 2], fill=fill)
+        else:
+            draw.ellipse([0, H - eh, W, H], fill=fill)
+            draw.rectangle([0, eh / 2, W, H - eh / 2], fill=fill)
+        draw.ellipse([0, 0, W, eh], fill=light, **kw)
+    elif block_type == "vector_database":
+        dx, dy = W * 0.22, H * 0.22
+        draw.polygon([(0, dy), (W - dx, dy), (W - dx, H), (0, H)], fill=fill, **kw)
+        draw.polygon([(0, dy), (dx, 0), (W, 0), (W - dx, dy)], fill=light, **kw)
+        draw.polygon([(W - dx, dy), (W, 0), (W, H - dy), (W - dx, H)], fill=dark, **kw)
+    elif block_type == "user":
+        draw.ellipse([0, 0, W, H], fill=fill, **kw)
+        er = W * 0.055
+        for cx in (.34, .66):
+            draw.ellipse([cx * W - er, .36 * H - er, cx * W + er, .36 * H + er], fill=ink)
+        draw.arc([.26 * W, .30 * H, .74 * W, .78 * H], 20, 160, fill=ink, width=max(2, int(W * 0.035)))
+    elif block_type == "external_service":
+        ells = [(e[0] * W, e[1] * H, e[2] * W, e[3] * H)
+                for e in ((0, .40, .45, 1), (.55, .40, 1, 1), (.14, 0, .62, .66), (.40, .12, .88, .72))]
+        rect = (.22 * W, .55 * H, .78 * W, H)
+        if outline:  # outline the union: outline-colour pass, then inset fill pass
+            for e in ells:
+                draw.ellipse(list(e), fill=outline)
+            draw.rectangle(list(rect), fill=outline)
+        for e in ells:
+            draw.ellipse([e[0] + ow, e[1] + ow, e[2] - ow, e[3] - ow], fill=fill)
+        draw.rectangle([rect[0], rect[1] + ow, rect[2], rect[3] - ow], fill=fill)
+    elif block_type == "time":
+        draw.polygon(pct([(0, 0), (1, 0), (.53, .5), (1, 1), (0, 1), (.47, .5)]), fill=fill, **kw)
+    else:  # unreachable while GLYPH_FILL and this chain agree
+        raise KeyError(block_type)
+
+
+# Clear this cache after changing OUTLINE or ENTITY_OUTLINE.
+_glyph_cache = {}
+
+def glyph_tile(block_type, size=ICON_SIZE):
     cache_key = (block_type, size)
-    if cache_key in _icon_cache:
-        return _icon_cache[cache_key]
-    path = ICON_DIR / ICON_FILES[block_type]
-    icon = Image.open(path).convert("RGBA")
-    bbox = icon.getbbox()
-    if bbox:
-        icon = icon.crop(bbox)
-    icon.thumbnail((size, size), Image.LANCZOS)
-    _icon_cache[cache_key] = icon
-    return icon
+    if cache_key in _glyph_cache:
+        return _glyph_cache[cache_key]
+    w, h = GLYPH_BOX[size]  # any size outside GLYPH_BOX raises
+    big = (w * SUPERSAMPLE, h * SUPERSAMPLE)
+    tile = Image.new("RGBA", big, (0, 0, 0, 0))
+    draw_glyph(ImageDraw.Draw(tile), block_type, (0, 0, big[0] - 1, big[1] - 1))
+    tile = tile.resize((w, h), Image.LANCZOS)
+    _glyph_cache[cache_key] = tile
+    return tile
 
 
 def layout_legend(types_used, font, max_width):
@@ -228,7 +366,7 @@ def render_legend(canvas, draw, types_used, top_y, region_left, region_right, fo
         row_w = current_row_width(row)
         x = region_left + (region_w - row_w) / 2
         for block_type, entry_w, label in row:
-            icon = load_icon(block_type, size=LEGEND_ICON_SIZE)
+            icon = glyph_tile(block_type, size=LEGEND_ICON_SIZE)
             ix = int(x + (LEGEND_ICON_SIZE - icon.width) / 2)
             iy = int(y + (LEGEND_ICON_SIZE - icon.height) / 2)
             canvas.paste(icon, (ix, iy), icon)
@@ -602,7 +740,7 @@ def render(design, output_path):
     # cache icon dimensions so arrows know where icon edges actually are
     icon_dims = {}
     for node in nodes:
-        icon = load_icon(node["type"])
+        icon = glyph_tile(node["type"])
         icon_dims[node["id"]] = (icon.width / 2, icon.height / 2)
 
     # compute per-edge routing (sides + offsets) for distinct tracks
@@ -631,7 +769,7 @@ def render(design, output_path):
     # behind them so the type label always reads clearly.
     for node in nodes:
         nid = node["id"]
-        icon = load_icon(node["type"])
+        icon = glyph_tile(node["type"])
         x, y = pos[nid]
         ix = int(x - icon.width / 2)
         iy = int(y - icon.height / 2)

@@ -5,7 +5,6 @@ PNG renderer for system design diagrams produced by `/design-with-blocks`.
 ## Files
 
 - `render.py` — main renderer (single self-contained Python script)
-- `icons/` — the 10 canonical building-block + entity icons used in the videos
 - `requirements.txt` — Python dependencies
 
 ## Install (one-time)
