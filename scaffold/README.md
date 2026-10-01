@@ -188,4 +188,4 @@ years as a software engineer and engineering manager (AncestryDNA, Morgan
 Stanley). The mission in one line: teaching engineers how to direct AI and
 still get stronger doing it.
 
-Made by [Systems Thinking Lab](https://systemthinkinglab.ai/?ref=scaffold). Free reading: [systemthinkinglab.ai/learn](https://systemthinkinglab.ai/learn?ref=scaffold). [Course 0](https://systemthinkinglab.ai/course-0.html?ref=scaffold) teaches this workflow on real work.
+Made by [Systems Thinking Lab](https://systemthinkinglab.ai/?ref=scaffold). Free reading: [systemthinkinglab.ai/learn/plan-first-loop/](https://systemthinkinglab.ai/learn/plan-first-loop/?ref=scaffold). [Course 0](https://systemthinkinglab.ai/course-0.html?ref=scaffold) teaches this workflow on real work.
