@@ -2,6 +2,16 @@
   "name": "design-with-blocks",
   "displayName": "Design with Blocks",
   "description": "Design an application using the 7 Universal Building Blocks framework: decompose features into blocks, get per-block technology recommendations, and output a buildable design doc.",
+  "keywords": [
+    "system-design",
+    "architecture",
+    "building-blocks",
+    "design-doc",
+    "planning",
+    "backend",
+    "scalability",
+    "vibe-coding"
+  ],
   "version": "1.0.2",
   "author": {
     "name": "Kay Ashaolu",

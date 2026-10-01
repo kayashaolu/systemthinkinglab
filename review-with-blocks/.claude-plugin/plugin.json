@@ -2,6 +2,16 @@
   "name": "review-with-blocks",
   "displayName": "Review with Blocks",
   "description": "Review a finished system design against the 7 Universal Building Blocks and the non-functional '-ilities': decompose it, flag wrong/missing blocks, rate each load-bearing -ility, and surface the questions a senior would ask. The design-review end of design → build → review.",
+  "keywords": [
+    "design-review",
+    "system-design",
+    "architecture",
+    "building-blocks",
+    "scalability",
+    "reliability",
+    "tradeoffs",
+    "senior-engineer"
+  ],
   "version": "1.0.1",
   "author": {
     "name": "Kay Ashaolu",

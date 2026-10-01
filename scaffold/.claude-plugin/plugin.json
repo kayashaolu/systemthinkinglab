@@ -2,6 +2,18 @@
   "name": "scaffold",
   "displayName": "Scaffold",
   "description": "A plan-first developer workflow, run by an AI mentor: it predicts before it builds, keeps a compounding wiki of your codebase, and holds an honest ledger of what you've demonstrated you know, in craft or direction mode.",
+  "keywords": [
+    "plan-first",
+    "mentor",
+    "coaching",
+    "workflow",
+    "learning",
+    "junior-engineers",
+    "vibe-coding",
+    "system-design",
+    "codebase-wiki",
+    "code-quality"
+  ],
   "version": "0.5.2",
   "author": {
     "name": "Kay Ashaolu",
