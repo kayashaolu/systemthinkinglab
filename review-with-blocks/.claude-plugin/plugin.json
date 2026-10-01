@@ -16,5 +16,12 @@
   "author": {
     "name": "Kay Ashaolu",
     "url": "https://systemthinkinglab.ai"
-  }
+  },
+  "homepage": "https://systemthinkinglab.ai/review-with-blocks",
+  "repository": "https://github.com/kayashaolu/systemthinkinglab",
+  "license": "Apache-2.0",
+  "documentationUrl": "https://github.com/kayashaolu/systemthinkinglab/blob/main/review-with-blocks/README.md",
+  "supportUrl": "https://github.com/kayashaolu/systemthinkinglab/issues",
+  "privacyPolicyUrl": "https://systemthinkinglab.ai/privacy",
+  "termsOfServiceUrl": "https://systemthinkinglab.ai/terms"
 }
