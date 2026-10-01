@@ -251,12 +251,13 @@ After the markdown design doc is shown, offer to render a PNG of the architectur
 2. Run the bundled renderer:
 
    ```bash
-   cd $(dirname "$0")/render
-   pip install -q -r requirements.txt   # only first time on a machine
-   python render.py design.json -o architecture.png
+   R="${CLAUDE_SKILL_DIR}"
+   test -f "$R/render/render.py" && { python -c 'import PIL, networkx, numpy, scipy' 2>/dev/null || python -m pip install -q -r "$R/render/requirements.txt"; } && python "$R/render/render.py" design.json -o architecture.png
    ```
 
-   In the claude.ai code-interpreter sandbox, Pillow / networkx / numpy / scipy are usually pre-installed; the `pip install` step is a no-op.
+   Claude Code replaces the placeholder on the `R=` line with this skill's folder before the command runs, so `design.json` and `architecture.png` stay in the user's current directory. If the `test -f` fails (the placeholder was not replaced), re-run the same command with `R` set to the folder this SKILL.md was loaded from (the path on the `Base directory for this skill:` line, when present). Do not `cd` anywhere and do not install from the user's own directory. If pip refuses with `externally-managed-environment`, tell the user to install Pillow, networkx, numpy and scipy in a venv and re-run with that venv's `python`. Never pass `--break-system-packages`.
+
+   In the claude.ai code-interpreter sandbox, Pillow / networkx / numpy / scipy are usually pre-installed; the import check passes, so `pip install` is skipped.
 
 3. The renderer produces `architecture.png` in the user's current directory. Show the path so they can open it. Do not embed in the chat — let them open the file in their image viewer.
 
